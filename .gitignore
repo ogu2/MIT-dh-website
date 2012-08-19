@@ -2,3 +2,6 @@
 *.pot
 *.pyc
 local_settings.py
+dh_db.sql
+#editor temp files
+*~
