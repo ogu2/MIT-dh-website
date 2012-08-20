@@ -1,39 +1,39 @@
 {% extends "page.html" %}
 {% load static %}
 {% block main %}
-      <div class="row" >
-        <div class="span6 columns">
-        </div>
-      </div>
-      <p></p>
+      <div class="main" style='background:url("{% get_static_prefix %}images/back.jpeg");background-repeat:no-repeat;'>
       <div class="row">
-      	<div class=" well span4 offset1">
+      	<div id="left_pane" class="well span3 well-transparent offset1">
       	 <h4>Leute</h4>
       	 <hr/>
       	 {% comment %}
-      	 Careful! Code is public. Do not share facebook usernames/names
+      	     Careful! Code is public. Do not share facebook usernames/names
       	 {% endcomment %}
-      	 <ul class="thumbnails">
-      	     {% for x in 23423423423420123456789|make_list %}
-      	     <li>
-		      	 <a class="thumbnail {{ x }}">
-		      	    <img src='http://placehold.it/50x50'/>
-		      	 </a>
-		     </li> 
-		     {% endfor %}
+  	     {% for x in 23423423423420123456789|make_list %}
+	      	    <img class="fb_img" src='http://placehold.it/50x50/57f/f5f'/>
+	     {% endfor %}
 		     
-      	 </ul>
         </div>
-        <div class="span4 offset1 well">
-            <h4>Welcome to German Haus</h4>
-            <hr/>
-            Das Deutsche Haus ist eine kleine Wohngemeinschaft von 
-            25 Studenten innerhalb von New House. Wir essen und 
-            musizieren zusammen und sprechen Deutsch manchmal. 
-            Gelegentlich backt Einer uns etwas Köstliches, und 
-            wir verbringen einen schönen Abend miteinander. Für 
-            jeden gibt es ein geräumiges Einzelzimmer als Unterkunft 
-            zur Verfügung. 
+        <div class="span4 offset3">
+            <div class="row well well-transparent">
+	            <h4>Welcome to German Haus</h4>
+	            <hr/>
+	            Das Deutsche Haus ist eine kleine Wohngemeinschaft von 
+	            25 Studenten innerhalb von New House. Wir essen und 
+	            musizieren zusammen und sprechen Deutsch manchmal. 
+	            Gelegentlich backt Einer uns etwas Köstliches, und 
+	            wir verbringen einen schönen Abend miteinander. Für 
+	            jeden gibt es ein geräumiges Einzelzimmer als Unterkunft 
+	            zur Verfügung. 
+	        </div><!--row-->
+	        <div class="row well well-transparent">
+	           <h4>Latest Blogs</h4>
+	           <hr/>
+	           <p>Blog title 1</p>
+	           <p>Blog title 2</p>
+	           <p>Blog title 3</p>
+	        </div>
         </div>
+      </div>
       </div>
 {% endblock %}
