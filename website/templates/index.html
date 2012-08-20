@@ -1,0 +1,39 @@
+{% extends "page.html" %}
+{% load static %}
+{% block main %}
+      <div class="row" >
+        <div class="span6 columns">
+        </div>
+      </div>
+      <p></p>
+      <div class="row">
+      	<div class=" well span4 offset1">
+      	 <h4>Leute</h4>
+      	 <hr/>
+      	 {% comment %}
+      	 Careful! Code is public. Do not share facebook usernames/names
+      	 {% endcomment %}
+      	 <ul class="thumbnails">
+      	     {% for x in 23423423423420123456789|make_list %}
+      	     <li>
+		      	 <a class="thumbnail {{ x }}">
+		      	    <img src='http://placehold.it/50x50'/>
+		      	 </a>
+		     </li> 
+		     {% endfor %}
+		     
+      	 </ul>
+        </div>
+        <div class="span4 offset1 well">
+            <h4>Welcome to German Haus</h4>
+            <hr/>
+            Das Deutsche Haus ist eine kleine Wohngemeinschaft von 
+            25 Studenten innerhalb von New House. Wir essen und 
+            musizieren zusammen und sprechen Deutsch manchmal. 
+            Gelegentlich backt Einer uns etwas Köstliches, und 
+            wir verbringen einen schönen Abend miteinander. Für 
+            jeden gibt es ein geräumiges Einzelzimmer als Unterkunft 
+            zur Verfügung. 
+        </div>
+      </div>
+{% endblock %}

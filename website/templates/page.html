@@ -1,0 +1,36 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monospace</title>
+    <link href="{% get_static_prefix %}bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="{% get_static_prefix %}dh.css" media="screen" rel="stylesheet" type="text/css">
+    <!--script src="{% get_static_prefix %}website/jquery.min.js" type="text/javascript"/-->
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="{% url home %}">Deutsches Haus</a>
+          <div class="nav-collapse">
+	          <ul class="nav">
+	               <li><a href="#">Item 1</a></li>
+	               <li><a href="#">Item 2</a></li>
+	               <li><a href="#">Item 3</a></li>
+	          </ul>
+	          <ul class="nav pull-right">
+		          {% if user %}
+	                <li><a href="{% url sign_out %}">Sign Out</a></li>
+	              {% else %}
+	                <li><a href="{% url sign_in %}">Sign In</a></li>
+	              {% endif %}
+	          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main container">
+{% block main %}
+{% endblock %}
+    </div>
+  </body>
+</html>
