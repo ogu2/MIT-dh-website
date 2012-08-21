@@ -4,7 +4,8 @@
     <title>Monospace</title>
     <link href="{% get_static_prefix %}bootstrap.css" media="screen" rel="stylesheet" type="text/css">
     <link href="{% get_static_prefix %}dh.css" media="screen" rel="stylesheet" type="text/css">
-    <!--script src="{% get_static_prefix %}website/jquery.min.js" type="text/javascript"/-->
+    <script src="{% get_static_prefix %}jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}bootstrap-alert.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -13,9 +14,9 @@
           <a class="brand" href="{% url home %}">Deutsches Haus</a>
           <div class="nav-collapse">
 	          <ul class="nav">
-	               <li><a href="#">Item 1</a></li>
-	               <li><a href="#">Item 2</a></li>
-	               <li><a href="#">Item 3</a></li>
+	               <li><a href="#">members</a></li>
+	               <li><a href="#">life@dh</a></li>
+	               <li><a href="#">contact us</a></li>
 	          </ul>
 	          <ul class="nav pull-right">
 		          {% if user %}
