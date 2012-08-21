@@ -26,7 +26,10 @@ def life(request):
     return render_to_response('life.html')
 
 def contact_us(request):
-    return render_to_response('contact.html')
+    return render_to_response('devel.html') #contact.html
 
 def members(request):
-    return render_to_response('members.html')
+    return render_to_response('devel.html') #members.html
+
+def devel(request):
+    return render_to_response('devel.html')

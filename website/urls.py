@@ -7,6 +7,7 @@ urlpatterns = patterns('website.views',
     url(r'^$', 'register',name='register'),
     url(r'^contact_us$', 'contact_us', name='contact_us'),
     url(r'^members$','members',name='members'),
-    url(r'^life$','life',name='life')
+    url(r'^life$','life',name='life'),
+    url(r'^devel$','devel', name='devel'),
 )
 

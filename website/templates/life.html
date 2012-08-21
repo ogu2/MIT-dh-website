@@ -1,0 +1,59 @@
+{% extends "page.html" %}
+{% load static %}
+{% block main %}
+    <div class="container">
+
+      <!-- Main hero unit for a primary message or call to action -->
+      <div class="hero-unit">
+        <h1>Willkommen!</h1>
+        <p>Welcome to the best house on MIT's campus.
+         You can learn more about life as it's lived ins Haus here or in member<a href="{% url devel %}"> blogs</a>.
+         You can also learn more about our members by clicking the link below</p>
+        <p><a class="btn btn-primary btn-large" href="{% url members%}">Members &raquo;</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+      <div class="span4">
+          <h2>Food</h2>
+           <p>
+           German House keeps you well-fed with home-cooked meals. You will become a member of a 
+        cook crew of 2 or 3 people, and cook for everyone once a week in the best kitchen of any 
+        dorm here at MIT. The rest of the week, you will benefit from the culinary skills of other 
+        members. On any given night, our meal could include pineapple pizza, fried rice, 
+        fricasseed chicken, baklava, or anything else that night's cook crew can concoct.
+        You can check out our recipes <a href="http://dh.xvm.mit.edu/cl/">here</a>.
+           </p>
+          <!--p><a class="btn" href="">Recipes &raquo;</a></p-->
+       </div>
+        <div class="span4">
+          <h2>Community Living</h2>
+           <p>In German House, you'll live with 23 students in an independent 
+        community inside New House. We eat together, 
+        play music together speak German with poor accents together, 
+        and at the end of the day we all sleep in our spacious singles. 
+           </p>
+          <!--p><a class="btn" href="#">View details &raquo;</a></p-->
+        </div>
+        
+        <div class="span4">
+          <h2>&ETH;ivers&ecirc;</h2>
+          <p>
+          German House members come from all over the world. 
+        People here grew up speaking English, German, Chinese, Swahili, 
+        and a bunch of other languages. Few of us speak a little German, 
+        and our common interest in the culture ties us all together. Some people spend 
+        entire summers working in Germany; others simply want to learn German, or 
+        even just watch German movies <em>once in a while</em>.
+          </p>
+          {% comment %}
+            TODO
+          <!--p><a class="btn" href="#">Explore! &raquo;</a></p-->
+          {% endcomment %}
+        </div>
+      </div>
+
+
+
+    </div> <!-- /container -->
+{% endblock main%}

@@ -2,6 +2,7 @@
 {% load static %}
 {% block main %}
   <div class="main" style='background:url("{% get_static_prefix %}images/back.jpeg");background-repeat:no-repeat;'>
+  {%if alerts%}
       <div class="row">
         <div class="span10 offset1">
 		      <div class="alert alert-info">
@@ -10,6 +11,7 @@
               </div>
 	    </div>
       </div>
+  {%endif%}
       <div class="row">
       	<div id="left_pane" class="well span3 well-transparent offset1">
       	 <h4>Leute</h4>
@@ -17,10 +19,13 @@
       	 {% comment %}
       	     Careful! Code is public. Do not share facebook usernames/names
       	 {% endcomment %}
-  	     {% for x in 23423423423420123456789|make_list %}
-	      	    <img class="fb_img" src='http://placehold.it/50x50/57f/f5f'/>
+  	     {% for x in 01234567890123456789|make_list %}
+  	     <a href="{% url members%}#username"  rel="popover" 
+  	     data-content="one line bio" 
+  	     data-original-title="username">
+      	    <img class="fb_img" src='http://placehold.it/50x50'/>
+      	 </a>
 	     {% endfor %}
-		     
         </div>
         <div class="span4 offset3">
             <div class="row well well-transparent">
@@ -44,4 +49,8 @@
         </div>
       </div>
   </div>
+  <script>
+    $("a[rel=popover]")
+      .popover();
+</script>
 {% endblock %}
