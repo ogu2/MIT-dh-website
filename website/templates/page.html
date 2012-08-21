@@ -14,9 +14,9 @@
           <a class="brand" href="{% url home %}">Deutsches Haus</a>
           <div class="nav-collapse">
 	          <ul class="nav">
-	               <li><a href="#">members</a></li>
-	               <li><a href="#">life@dh</a></li>
-	               <li><a href="#">contact us</a></li>
+	               <li><a href="{% url members %}">members</a></li>
+	               <li><a href="{% url life %}">life@dh</a></li>
+	               <li><a href="{% url contact_us%}">contact us</a></li>
 	          </ul>
 	          <ul class="nav pull-right">
 		          {% if user %}

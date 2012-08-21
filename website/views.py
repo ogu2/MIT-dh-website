@@ -1,6 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.core.context_processors import request
 
 def index(request):
     return HttpResponse("habari dh")
@@ -20,3 +21,12 @@ def sign_out(request):
 
 def register(request):
     return HttpResponse("habari dh")
+
+def life(request):
+    return render_to_response('life.html')
+
+def contact_us(request):
+    return render_to_response('contact.html')
+
+def members(request):
+    return render_to_response('members.html')

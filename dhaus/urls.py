@@ -16,5 +16,5 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
     #site urls
-    url(r'^$',include('website.urls'))
+    url(r'',include('website.urls'))
 )
