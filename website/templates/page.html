@@ -1,7 +1,9 @@
 {% load static %}<!DOCTYPE html>
 <html>
   <head>
-    <title>Monospace</title>
+  {% block title %}
+    <title>MIT Deutsches Haus- German House</title>
+  {%endblock %}
     <link href="{% get_static_prefix %}bootstrap.css" media="screen" rel="stylesheet" type="text/css">
     <link href="{% get_static_prefix %}dh.css" media="screen" rel="stylesheet" type="text/css">
     <script src="{% get_static_prefix %}jquery-1.8.0.min.js" type="text/javascript"></script>

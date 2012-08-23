@@ -2,14 +2,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.core.context_processors import request
-
+from website.models import UserProfile
 def index(request):
     return HttpResponse("habari dh")
 
 def home(request):
   uid = request.session.get('user')
+  args={}
   if uid is None:
-    return render_to_response('index.html')
+    members=UserProfile.objects.filter(is_alum=False)
+    args['members']=members
+    return render_to_response('index.html',args)
   else:
     return render_to_response('user.html', {'user': User.objects.get(pk=uid)})
 

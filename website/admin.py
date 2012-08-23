@@ -1,0 +1,9 @@
+#Admin page for website
+from website.models import UserProfile
+from django.contrib import admin
+
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'fb_username', 'year','is_alum')
+    list_filter = ['is_alum','year']
+    
+admin.site.register(UserProfile,UserProfileAdmin)
