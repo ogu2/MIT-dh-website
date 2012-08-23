@@ -1,0 +1,39 @@
+{% if member %}
+<div class="row"> 
+    <div class="span2 offset1">
+        <img class="thumbnail" src="https://graph.facebook.com/{{member.fb_username}}/picture?type=large" />
+    </div> 
+    <div class="span3  offset2">
+    {% comment %}
+        TODO: link name to blog
+    {% endcomment %}
+        <div class="row">
+            <h2>{{member.user.first_name}} {{member.user.last_name}}</h2>
+        </div>
+        
+        <div class="row lead">
+            {{member.course}} , {{member.year}}
+        </div>
+        {% comment %}
+        {% if member.home_town %}
+        <div class="row">
+            <h5>{{member.home_town}}</h5>
+        </div>
+        {% endif%}
+         {% endcomment %}
+        {% if member.short_bio %}
+        <div class="row">
+            <pre>{{member.short_bio}}</pre>
+        </div>
+        {% endif%}
+        
+        {% if member.url %}
+        <div class="row">
+            <a href="{{member.url}}">{{member.url}}</a>
+        </div>
+        {% endif%}
+        
+    </div>
+</div><!--row-->
+<br/>
+{% endif %}

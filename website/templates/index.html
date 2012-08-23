@@ -1,17 +1,8 @@
 {% extends "page.html" %}
 {% load static %}
 {% block main %}
-  <div class="main" style='background:url("{% get_static_prefix %}images/back.jpeg");background-repeat:no-repeat;'>
-  {%if alerts%}
-      <div class="row">
-        <div class="span10 offset1">
-		      <div class="alert alert-info">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Well done!</strong> You successfully read this important alert message.
-              </div>
-	    </div>
-      </div>
-  {%endif%}
+  <div class="main" style='background:url("{% get_static_prefix %}images/back.jpeg");background-repeat:no-repeat;height:100%'>
+    {% include "alerts.html" %}
       <div class="row">
       	<div id="left_pane" class="well span3 well-transparent offset1">
       	 <h4>Leute</h4>
@@ -21,9 +12,9 @@
       	 {% endcomment %}
       	 {% if members%}
       	 {% for member in members %}
-         <a href="{% url members%}#username"  rel="popover" 
-         data-content="one line bio" 
-         data-original-title="username">
+         <a href="{% url members%}#{{member.user.username}}"  rel="popover" 
+         data-content="{{member.short_bio}}" 
+         data-original-title="{{member.user.first_name}} {{member.user.last_name}}">
             <img class="fb_img" src='https://graph.facebook.com/{{member.fb_username}}/picture'/>
          </a>
          {% endfor %}

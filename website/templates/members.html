@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+{% load static %}
+{% block main %}
+  <div class="main">
+    {% include "alerts.html" %}
+    {%if members%}
+    {%for member in members %}
+        {% include "userinfo.html" %}
+    {% endfor %}
+    {% else %}
+    <p class ="lead">There are no members in the database. </p>
+    {% endif %}
+  </div>
+{% endblock %}

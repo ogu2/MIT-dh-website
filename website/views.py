@@ -10,7 +10,7 @@ def home(request):
   uid = request.session.get('user')
   args={}
   if uid is None:
-    members=UserProfile.objects.filter(is_alum=False)
+    members=UserProfile.objects.filter(is_alum=False, is_social_member=False)
     args['members']=members
     return render_to_response('index.html',args)
   else:
@@ -32,7 +32,9 @@ def contact_us(request):
     return render_to_response('devel.html') #contact.html
 
 def members(request):
-    return render_to_response('devel.html') #members.html
+    args={}
+    args['members']=UserProfile.objects.filter(is_alum=False, is_social_member=False)
+    return render_to_response('members.html',args) #members.html
 
 def devel(request):
     return render_to_response('devel.html')
