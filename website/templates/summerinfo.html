@@ -1,0 +1,27 @@
+{% if member %}
+<div class="row"> 
+    <div class="span2">
+        <img class="thumbnail" src="https://graph.facebook.com/{{member.userp.fb_username}}/picture?type=large" />
+        <p class="lead">
+        {{member.userp.course}} , {{member.userp.year}}
+        </p>
+        <p><a href="{{member.userp.url}}">{{member.userp.url}}</a></p>
+    </div> 
+    <div class="span3 well">
+           <p>{{member.what_you_did}}</p>
+    </div>
+    <div class="span3">
+    <p>{{member.yGermanHouse}}</p>
+    </div>
+    <div class="span3 well">
+    <p>{{member.Short_bio}}</p>
+    </div>
+    
+</div><!--row-->
+<div class="row">
+    <blockquote><p>{{member.anything_else}}</p>
+    </small>{{member.userp.user.first_name}} {{member.userp.user.last_name}}</small></blockquote>
+    </div>
+<br/>
+<hr/>
+{% endif %}
