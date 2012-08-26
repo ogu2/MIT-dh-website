@@ -50,16 +50,14 @@ def contact(request):
 
 def members(request):
     args={}
-    membs=UserProfile.objects.filter(is_alum=False, is_social_member=False)
-    random.shuffle(membs)
+    membs=UserProfile.objects.filter(is_alum=False, is_social_member=False).order_by('?')[:1].get()
     args['members']=membs
     return render_to_response('members.html',args) #members.html
 
 def summer(request):
     '''Template extends members'''
     args={}
-    membs=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False)
-    random.shuffle(membs)
+    membs=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False).order_by('?')[:1].get()
     args['members']=membs
     return render_to_response('summer.html',args)
 
