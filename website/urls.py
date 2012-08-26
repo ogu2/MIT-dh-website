@@ -9,5 +9,6 @@ urlpatterns = patterns('website.views',
     url(r'^members$','members',name='members'),
     url(r'^life$','life',name='life'),
     url(r'^devel$','devel', name='devel'),
+    url(r'^summer$','summer', name='summer'),
 )
 

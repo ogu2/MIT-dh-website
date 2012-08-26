@@ -19,3 +19,12 @@ class UserProfile(models.Model):
 	
 	def __unicode__(self):
 		return str(self.user.first_name)+' '+str(self.user.last_name)+' ('+str(self.user.username)+') , '+str(self.year)
+
+class Summer(models.Model):
+	'''Just for use during REX
+	TODO:rethink this'''
+	userp=models.ForeignKey(UserProfile,unique=True)
+	what_you_did=models.TextField()
+	yGermanHouse=models.TextField()
+	anything_else=models.TextField()
+	Short_bio=models.TextField()

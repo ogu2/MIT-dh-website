@@ -48,6 +48,20 @@
 	           <p>Blog title 2</p>
 	           <p>Blog title 3</p>
 	        </div>
+	     {% elif summer %}
+	     
+	         <div class="row well well-transparent">
+	           <h4>Random Summer</h4>
+	           <hr/>
+	           <div class="row-fluid">
+	           	<!--img class ="span2" src='https://graph.facebook.com/{{summer.userp.fb_username}}/picture'-->
+	           	<p class="offset1 lead" style="float:right"> {{summer.userp.user.first_name}} {{summer.userp.user.last_name}}{% if summer.userp.year %}, {{summer.userp.year}}{% endif %}
+	           	</p>
+           	   </div>
+	           <p>{{summer.what_you_did}}</p>
+	           <a href="{% url summer %}" style="float:right">More</a>
+	        </div>
+	     
          {% endif %}
         </div>
       </div>

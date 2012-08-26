@@ -5,7 +5,12 @@
     {% include "alerts.html" %}
     {%if members%}
     {%for member in members %}
+    {% block member_details%}
+    {% comment %}
+    	making page extandable
+    {% endcomment %}
         {% include "userinfo.html" %}
+    {%endblock%}
     {% endfor %}
     {% else %}
     <p class ="lead">There are no members in the database. </p>

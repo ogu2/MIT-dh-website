@@ -1,5 +1,5 @@
 #Admin page for website
-from website.models import UserProfile
+from website.models import UserProfile, Summer
 from django.contrib import admin
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -7,3 +7,4 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_filter = ['is_alum','year', 'is_social_member']
     
 admin.site.register(UserProfile,UserProfileAdmin)
+admin.site.register(Summer)
