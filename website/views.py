@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response ,redirect
 from django.core.context_processors import request
 from website.models import UserProfile, Summer,ContactMessages
 from website.forms import ContactForm
@@ -73,10 +73,8 @@ def contact_us(request):
                 message=form.cleaned_data['message']
                 ).save()
         request.session['alerts'] = ['Contact message has been successfully sent']
-        return HttpResponseRedirect('/')
+        return redirect('home')
         
-
-    
     else:
       form = ContactForm()
 
