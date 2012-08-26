@@ -7,8 +7,6 @@ from website.models import UserProfile, Summer,ContactMessages
 from website.forms import ContactForm
 from django.template import RequestContext
 
-import random
-
 def index(request):
     return HttpResponse("habari dh")
 
@@ -25,9 +23,9 @@ def home(request):
     except:
         args['alerts']=None
         
-    x=Summer.objects.all()
+    x=Summer.objects.all().order_by('?')
+    
     if x:
-        random.shuffle(x)
         args['summer']=x[0]
     return render_to_response('index.html',args)
   else:
@@ -50,14 +48,14 @@ def contact(request):
 
 def members(request):
     args={}
-    membs=UserProfile.objects.filter(is_alum=False, is_social_member=False).order_by('?')[:1].get()
+    membs=UserProfile.objects.filter(is_alum=False, is_social_member=False).order_by('?')
     args['members']=membs
     return render_to_response('members.html',args) #members.html
 
 def summer(request):
     '''Template extends members'''
     args={}
-    membs=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False).order_by('?')[:1].get()
+    membs=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False).order_by('?')
     args['members']=membs
     return render_to_response('summer.html',args)
 
