@@ -1,5 +1,5 @@
 #Admin page for website
-from website.models import UserProfile, Summer
+from website.models import UserProfile, Summer, ContactMessages
 from django.contrib import admin
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class UserProfileAdmin(admin.ModelAdmin):
     
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(Summer)
+admin.site.register(ContactMessages)

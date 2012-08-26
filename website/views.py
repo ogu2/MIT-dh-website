@@ -1,8 +1,12 @@
 # Create your views here.
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.core.context_processors import request
-from website.models import UserProfile, Summer
+from website.models import UserProfile, Summer,ContactMessages
+from website.forms import ContactForm
+from django.template import RequestContext
+
 import random
 
 def index(request):
@@ -14,6 +18,13 @@ def home(request):
   if uid is None:
     members=UserProfile.objects.filter(is_alum=False, is_social_member=False)
     args['members']=members
+    
+    try:
+        args['alerts']=request.session['alerts']
+        del request.session['alerts']
+    except:
+        args['alerts']=None
+        
     x=Summer.objects.all()
     if x:
         random.shuffle(x)
@@ -34,7 +45,7 @@ def register(request):
 def life(request):
     return render_to_response('life.html')
 
-def contact_us(request):
+def contact(request):
     return render_to_response('devel.html') #contact.html
 
 def members(request):
@@ -50,3 +61,32 @@ def summer(request):
 
 def devel(request):
     return render_to_response('devel.html')
+
+def contact_us(request):
+    user = None
+    if request.method == 'POST':
+      form = ContactForm(request.POST)
+      if form.is_valid():
+        ContactMessages(processed=False,
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                message=form.cleaned_data['message']
+                ).save()
+        request.session['alerts'] = ['Contact message has been successfully sent']
+        return HttpResponseRedirect('/')
+        
+
+    
+    else:
+      form = ContactForm()
+
+    return render_to_response(
+    'contact_us.html',
+    {
+      'form': form,
+      'months': range(1, 12),
+      'years': range(2011, 2036),
+    },
+    context_instance=RequestContext(request)
+
+  )

@@ -28,3 +28,17 @@ class Summer(models.Model):
 	yGermanHouse=models.TextField()
 	anything_else=models.TextField()
 	Short_bio=models.TextField()
+	
+	def __unicode__(self):
+		return str(self.userp.user.first_name)+' '+str(self.userp.user.last_name)+' summer'
+	
+class ContactMessages(models.Model):
+	'''Stores contact messages till we write email fn to change to log mode'''
+	name=models.CharField(max_length=250)
+	email=models.EmailField()
+	message=models.TextField()
+	processed=models.BooleanField()
+	timestamp=models.DateField(auto_now_add=True)
+	
+	def __unicode__(self):
+		return str(self.name)+' '+str(self.timestamp)
