@@ -50,7 +50,9 @@ def contact(request):
 
 def members(request):
     args={}
-    args['members']=UserProfile.objects.filter(is_alum=False, is_social_member=False)
+    membs=UserProfile.objects.filter(is_alum=False, is_social_member=False)
+    random.shuffle(membs)
+    args['members']=membs
     return render_to_response('members.html',args) #members.html
 
 def summer(request):
