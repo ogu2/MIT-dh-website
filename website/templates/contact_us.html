@@ -1,0 +1,37 @@
+{% extends "page.html" %}
+{% block main %}
+      <div class="page-header main">
+        <h1>Contact German House</h1>
+      </div>
+      <div class="row">
+      
+        <div class="span6 columns">
+          <form id="user_form" accept-charset="UTF-8" action="{% url contact_us %}" class="form-stacked"  method="POST">
+          
+            {% csrf_token %}
+            {% include "alerts.html" %}
+            {% if form.is_bound and not form.is_valid %}
+              <div class="alert alert-error">
+              {% for field in form.visible_fields %}
+                {% for error in field.errors %}
+                <p>{{ field.label }}: {{ error }}</p>
+                {% endfor %}
+              {% endfor %}
+              {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+              </div>
+            {% endif %}
+            {% for field in form.visible_fields %}
+            <div class="clearfix">
+		        {{ field.label_tag }}
+		        <div class="input">
+		          {{ field }}
+	        	</div>
+  			</div>
+            {% endfor %}
+              <input class="btn primary" id="user_submit" name="commit" type="submit" value="Submit">
+          </form>
+        </div>
+      </div>  
+{% endblock %}
