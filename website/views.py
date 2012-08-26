@@ -58,7 +58,9 @@ def members(request):
 def summer(request):
     '''Template extends members'''
     args={}
-    args['members']=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False)
+    membs=Summer.objects.filter(userp__is_alum=False, userp__is_social_member=False)
+    random.shuffle(membs)
+    args['members']=membs
     return render_to_response('summer.html',args)
 
 def devel(request):
