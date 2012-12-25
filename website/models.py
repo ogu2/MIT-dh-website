@@ -7,7 +7,7 @@ class UserProfile(models.Model):
 	'''Requires facebook username to pull current fb image and
 	possibly other user data'''
 	user=models.ForeignKey(User,unique=True)
-	fb_username=models.CharField(max_length=50)
+	fb_username=models.CharField(max_length=100,blank=True)
 	course=models.CharField(max_length=50)
 	year=models.IntegerField()
 	phone_number=models.CharField(max_length=20)

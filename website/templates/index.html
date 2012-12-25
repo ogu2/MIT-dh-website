@@ -15,7 +15,11 @@
          <a href="{% url members%}#{{member.user.username}}"  rel="popover" 
          data-content="{{member.short_bio}}" 
          data-original-title="{{member.user.first_name}} {{member.user.last_name}}">
+            {% if member.fb_username%}
             <img class="fb_img" src='https://graph.facebook.com/{{member.fb_username}}/picture'/>
+            {%else%}
+            <img class="fb_img" src='http://placehold.it/50x50&text=sHaus'/>
+            {%endif%}
          </a>
          {% endfor %}
       	 {%else%}
